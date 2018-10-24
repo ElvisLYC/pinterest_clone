@@ -1,0 +1,26 @@
+<h3>Post a photos</h3>
+<%= form_with model: @post, url: posts_path, local: true do |post| %>
+<% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@listing.errors.count, "error") %> prohibited
+      this listing from being saved:
+    </h2>
+    <ul>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+  <p>
+    <%= post.label :caption %><br>
+    <%= post.text_area :caption %>
+  </p>
+  <div >
+    <%= post.file_field :photo %>
+  </div>
+  <p>
+    <%= post.submit %>
+  </p>
+<% end %>
