@@ -1,0 +1,4 @@
+<% @posts.each do |post| %>
+  <%= post.caption %>
+  <%= image_tag(post.photo.url) %>
+<% end %>

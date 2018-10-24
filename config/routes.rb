@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   root :to => "welcome#index"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
+  get "posts/search" => 'posts#search', as: 'search'
   resources :posts
+
 
 end

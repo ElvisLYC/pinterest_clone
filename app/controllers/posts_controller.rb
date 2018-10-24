@@ -18,9 +18,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.all
+    if params[:post][:term]
+      @posts = @posts.search_by_posts(params[:post][:term])
+    else
+      @Posts = @posts
+    end
+  end
+
   def show
+    # @posts = Post.all
+    # if params[:post][:term]
+    #   @posts = @posts.search_by_posts(params[:post][:term])
+    # else
+    #   @Posts = @posts
+    # end
     @post = Post.find(params[:id])
   end
+
+
 
   private
   def post_params
