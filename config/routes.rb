@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root :to => "welcome#index"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "posts/search" => 'posts#search', as: 'search'
+  get "posts/ajax_search" => 'posts#ajax_search', as: 'ajax_search'
   resources :posts
 
 

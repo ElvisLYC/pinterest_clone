@@ -20,10 +20,24 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.all
-    if params[:post][:term]
-      @posts = @posts.search_by_posts(params[:post][:term])
+    if params[:query]
+      @posts = @posts.search_by_posts(params[:query])
+      # render :json => { posts: @posts }
+      # respond_to do |format|
+      #   format.json { render json: @posts }
+      #   format.js # remote: true is sent a js format and sends you to search.js.erb
+      # end
     else
-      @Posts = @posts
+      @posts = @posts
+    end
+  end
+
+  def ajax_search
+    @posts = Post.all
+    @posts = Post.search_by_posts(params["query"]).pluck(:caption).uniq
+    respond_to do |format|
+      format.json { render json: @posts }
+      format.js # remote: true is sent a js format and sends you to search.js.erb
     end
   end
 
