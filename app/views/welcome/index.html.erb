@@ -1,3 +1,9 @@
 <h1>
-  Pinterest
+  Pinterest Clone
 </h1>
+
+<% if session[:user_id] == nil %>
+  <%= render partial: '/welcome/signed_out' %>
+<% else %>
+  <%= render partial: '/welcome/signed_in' %>
+<% end %>

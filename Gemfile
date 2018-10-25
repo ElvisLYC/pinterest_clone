@@ -64,3 +64,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # added gem
 gem 'omniauth-google-oauth2'
 gem "figaro"
+gem 'carrierwave', '~> 1.0'
+gem "mini_magick"
+gem 'pg_search'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
