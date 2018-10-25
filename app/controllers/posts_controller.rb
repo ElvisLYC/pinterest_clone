@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @user = User.find(@post.user_id)
     if @post.save
-      redirect_to posts_path
+      redirect_to '/'
     else
       render new_post_path
     end
