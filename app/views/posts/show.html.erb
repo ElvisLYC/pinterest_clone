@@ -4,4 +4,20 @@
 <br>
 <%= image_tag(@post.photo.url) %>
 
-<% link_to "Home", '/' %>
+<br>
+
+
+<% if @current_vote.any? == false %>
+  <%= form_with model: @vote, url: create_vote_path do |vote| %>
+    <%= vote.submit :vote, value: "Like" %><br>
+    <%= @votes.length %><br>
+  <% end %>
+<% else %>
+  <%= form_with model: @vote, url: destroy_vote_path do |vote| %>
+    <%= vote.submit :vote, value: "Liked", method: :delete %><br>
+    <%= @votes.length %><br>
+    <% end %>
+<% end %>
+
+<br>
+<%= link_to "Back", '/' %>

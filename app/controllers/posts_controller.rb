@@ -49,12 +49,33 @@ class PostsController < ApplicationController
     #   @Posts = @posts
     # end
     @post = Post.find(params[:id])
+    @vote = Vote.new
+    @current_vote = Vote.where(user_id: current_user.id, post_id: params[:id])
+    @votes = Vote.all
   end
 
+  # def unvote
+  #   byebug
+  #   @post = Post.find(params[:id])
+  #   @vote = Vote.new
+  #   @current_vote = Vote.where(user_id: current_user.id, post_id: params[:id])
+  #   @votes = Vote.all
+  #
+  #   if @current_vote.any? == true
+  #     byebug
+  #     @current_vote.destroy
+  #     redirect post_path
+  #   else
+  #     redirect post_path
+  #   end
+  # end
 
+  def random
+  end
 
   private
   def post_params
     params.require(:post).permit(:caption, :user_id, :photo)
   end
+
 end

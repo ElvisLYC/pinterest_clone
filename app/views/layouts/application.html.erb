@@ -17,7 +17,8 @@
   <body>
     <% if current_user %>
       <%= link_to "Create Post", new_post_path %> |
-      <a href="#">Try the imGur API that I've implemented</a>
+      <%= link_to 'Home', root_path %>|
+      <%= link_to 'Random Image', random_path %>|
       <br>
       Signed in as <%= current_user.name %> | <%= link_to ("Log Out"), logout_path, method: :delete %>
     <% else %>
