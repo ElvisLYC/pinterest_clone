@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "posts/search" => 'posts#search', as: 'search'
   get "posts/ajax_search" => 'posts#ajax_search', as: 'ajax_search'
+  get "posts/random" => 'posts#random', as: 'random'
+  post "/posts/:id" => 'votes#create', as: 'create_vote'
+  post "/posts/:id" => 'posts#unvote', as: 'destroy_vote'
   resources :posts
-
+  resources :votes
 
 end

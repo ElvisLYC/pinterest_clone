@@ -1,5 +1,7 @@
 <br>
 <% @posts.each do |post| %>
   <%= post.caption %> <br>
-  <%= image_tag(post.photo.url) %>
+  <a href="/posts/<%=post.id%>">
+    <%= image_tag(post.photo.url) %>
+  </a>
 <% end %>
