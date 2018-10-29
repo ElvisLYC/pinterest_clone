@@ -51,7 +51,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @vote = Vote.new
     @current_vote = Vote.where(user_id: current_user.id, post_id: params[:id])
-    @votes = Vote.all
+    @votes = Vote.where(post_id: params[:id])
   end
 
   # def unvote

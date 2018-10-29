@@ -12,7 +12,9 @@
         <%= image_tag(post.photo.url) %>
       </a>
       <br>
-      <%= post.caption %>
+      <%= post.caption %>|
+      <%= post.votes.length %> likes
+
     </div>
   <% end %>
 </div>
