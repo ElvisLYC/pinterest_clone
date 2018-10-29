@@ -75,3 +75,4 @@ gem "mini_magick"
 gem 'pg_search'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'rails_12factor', group: :production
