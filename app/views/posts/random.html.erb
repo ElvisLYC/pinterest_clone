@@ -27,7 +27,7 @@
     function getTaggedPhotos(tagName) {
       // <iframe src="https://giphy.com/embed/4Zo41lhzKt6iZ8xff9" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/4Zo41lhzKt6iZ8xff9">via GIPHY</a></p>
       // fetch('https://api.tumblr.com/v2/tagged?tag=' + tagName + '&api_key=PWG4EfqjuqMrH76hGIB5RChBHovtC3jRBlDBP7tqCNZxKCppdX')
-      fetch('https://api.giphy.com/v1/gifs/search?q=' + tagName + '&api_key=SVOqo3OJUThVBnej3eV7Q8qGHKnHvj7M&limit=5')
+      fetch('https://api.giphy.com/v1/gifs/search?q=' + tagName + '&api_key=SVOqo3OJUThVBnej3eV7Q8qGHKnHvj7M&limit=10')
         .then(function(response) {
           if (!response.ok){
             window.alert('Hey, seems like something went wrong, please email <email address> for reports!');
