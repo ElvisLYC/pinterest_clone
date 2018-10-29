@@ -6,8 +6,12 @@ class Vote < ApplicationRecord
 after_create :compute_total_votes
 
   def compute_total_votes
+
     total_votes = Vote.where(post_id: self.post_id).length
-    self.post.update(total_votes: total_votes)
-    self.post.save
+    # if Vote.find_by(user_id: self.user_id) == nil
+      self.post.update(total_votes: total_votes)
+    # else
+      # self.destroy
+    # end
   end
 end

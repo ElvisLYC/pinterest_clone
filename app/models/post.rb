@@ -10,12 +10,12 @@ class Post < ApplicationRecord
                   :tsearch => {:prefix => true}
                 }
   # pg_search_scope :search_by_title, :against => :title
-  after_create :compute_total_posts
-
-  def compute_total_posts
-    self.user.compute_posts
-    self.user.save
-    self.save
-  end
+  # after_create :compute_total_posts
+  #
+  # def compute_total_posts
+  #   self.user.compute_posts
+  #   self.user.save
+  #   self.save
+  # end
 
 end
