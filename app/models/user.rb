@@ -22,4 +22,11 @@ class User < ApplicationRecord
      x = self.authentications.find_by(provider: 'google_oauth2')
      return x.token unless x.nil?
    end
+
+   after_create :compute_posts
+
+   def compute_posts
+     total_post = Post.where(user_id: self.id).length
+     self.update(total_post: total_post)
+   end
 end

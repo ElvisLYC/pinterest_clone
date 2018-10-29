@@ -5,10 +5,17 @@ class Post < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   pg_search_scope :search_by_posts,
-                :against => [:caption],
-                :using => {
+                  :against => [:caption],
+                  :using => {
                   :tsearch => {:prefix => true}
                 }
-pg_search_scope :search_by_title, :against => :title
+  # pg_search_scope :search_by_title, :against => :title
+  after_create :compute_total_posts
+
+  def compute_total_posts
+    self.user.compute_posts
+    self.user.save
+    self.save
+  end
 
 end
