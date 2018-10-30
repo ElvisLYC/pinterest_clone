@@ -9,6 +9,7 @@ class Post < ApplicationRecord
                   :using => {
                   :tsearch => {:prefix => true}
                 }
+
   # pg_search_scope :search_by_title, :against => :title
   # after_create :compute_total_posts
   #
